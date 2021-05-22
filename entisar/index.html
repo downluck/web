@@ -4,8 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Happy Birthday!</title>
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato|Dancing+Script&display=swap" as="style">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Dancing+Script&display=swap">
         <style>
-            @import url('https://fonts.googleapis.com/css?family=Lato|Dancing+Script&display=swap');
             body, html {
                 background-color:#4a367a;
                 width: 50%;
@@ -168,6 +170,11 @@
                 animation: cFADE 1s forwards !important;
             }
 
+            .load-font {
+                font-family: Dancing Script, Arial;
+                opacity: 0;
+            }
+
             @keyframes cFADE {
                 0% {
                     opacity: 1;
@@ -242,5 +249,6 @@
           </div>
         </div>
         </div>
+        <div class="load-font">.</div>
     </body>
 </html>

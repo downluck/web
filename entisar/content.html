@@ -4,8 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Happy Birthday!</title>
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato|Dancing+Script&display=swap" as="style">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Dancing+Script&display=swap">
         <style>
-            @import url('https://fonts.googleapis.com/css?family=Lato|Dancing+Script&display=swap');
             body, html {
                 background-color:#8058df;
                 width: 100%;
@@ -32,7 +33,8 @@
                 display: inline-block;
                 cursor: pointer;
                 transition: ease all .3s;
-                animation: anim 2s forwards;
+                opacity: 0;
+                /*animation: anim 2s forwards;*/
             }
             #letter:hover {
                 background-color:#505050;
@@ -53,7 +55,7 @@
                 margin-left: 20px;
                 cursor: pointer;
                 transition: ease all .3s;
-                animation: anim 3s forwards;
+               /* animation: anim 3s forwards;*/
                 animation-delay: 1s;
                 opacity: 0;
             }
@@ -71,19 +73,20 @@
             #carta {
                 background-color:#FFF;
                 border-radius: 10px;
-                width: 80%;
+                width: 90%;
                 margin: 40px auto;
                 height: 100%;
                 overflow: auto;
                 transition: ease all .3s;
                 padding-left: 20px;
                 padding-right: 10px;
-                font-family: Dancing Script, Arial;
+                font-family: 'Dancing Script';
                 color:#3f3f3f;
                 position: absolute;
                 top: -100%; left: 0; right: 0;
                 opacity: 0;
             }
+
             #carta h1 {
                 font-size: 5em;
                 text-align: left;
@@ -96,8 +99,8 @@
                 position: absolute;
                 top: 0; left: 0; right: 0;
                 overflow: auto;
-                transition: ease all .4s;
-                opacity: 1
+                opacity: 1;
+                animation: anim 2s;
             }
             #presente {
                 margin: 0 auto !important;
