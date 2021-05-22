@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Happy Birthday!</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+            body, html {
+                background-color:#4a367a;
+                width: 50%;
+                padding: 0;
+                margin: 0;
+            }
+            #container {
+                opacity: 1;
+                transition: ease all 1s;
+            }
+            .gift-box .gift--body {
+                position: relative;
+                margin-top: 10px;
+            }
+            .gift-box .gift--body .gift--bottom {
+                width: 200px;
+                height: 150px;
+                background: #ba52f7;
+                margin: 0 auto;
+                border-radius: 0px 0px 3px 3px;
+            }
+            .gift-box .gift--body .gift--cover {
+                width: 230px;
+                height: 40px;
+                background: #4a367a;
+                margin: 0 auto;
+                border-radius: 3px;
+            }
+            .gift-box .gift--body .gift--strip {
+                width: 40px;
+                height: 190px;
+                background: #ff91ff;
+                position: absolute;
+                top: 0px;
+                left: 50%;
+                margin-left: -20px;
+                box-shadow: 0px -5px 15px rgb(66, 66, 66);
+            }
+            .gift-box .gift--ribbon-wrapper {
+                width: 140px;
+                height: 50px;
+                margin: 0 auto;
+                position: relative;
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon.gift--ribbon__left {
+                float: left;
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon.gift--ribbon__right {
+                float: right;
+                -moz-transform: rotateY(180deg);
+                -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon-part {
+                border-radius: 3px;
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon-part.part__big {
+                width: 65px;
+                height: 50px;
+                background: #efcb47;
+                -moz-transform:  scale(1, 1) rotateZ(45deg) translate(18px, 23px) skewX(8deg);
+                -ms-transform:  scale(1, 1) rotateZ(45deg) translate(18px, 23px) skewX(8deg);
+                -webkit-transform:  scale(1, 1) rotateZ(45deg) translate(18px, 23px) skewX(8deg);
+                transform:  scale(1, 1) rotateZ(45deg) translate(18px, 23px) skewX(8deg);
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon-part.part__small {
+                margin: -30px 8px 0px;
+                width: 45px;
+                height: 45px;
+                background: #d7ad13;
+                -moz-transform:  scale(1, 1) rotateZ(29deg) translate(1px, 16px) skewX(-25deg);
+                -ms-transform:  scale(1, 1) rotateZ(29deg) translate(1px, 16px) skewX(-25deg);
+                -webkit-transform:  scale(1, 1) rotateZ(29deg) translate(1px, 16px) skewX(-25deg);
+                transform:  scale(1, 1) rotateZ(29deg) translate(1px, 16px) skewX(-25deg);
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon-node__wrapper {
+                width: 50px;
+                height: 20px;
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                margin-left: -25px;
+                z-index: 2;
+                overflow: hidden;
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon-node__wrapper > div {
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                position: absolute;
+                width: 100%;
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon-node__wrapper .gift--ribbon-node__big {
+                height: 50px;
+                top: 3px;
+                background: #efcb47;
+            }
+            .gift-box .gift--ribbon-wrapper .gift--ribbon-node__wrapper .gift--ribbon-node__small {
+                width: 40px;
+                height: 30px;
+                top: 10px;
+                left: 50%;
+                margin-left: -20px;
+                background: #d7ad13;
+            }
+            #circle {
+                width:350px;
+                height:320px;
+                background-image:radial-gradient(rgb(69, 25, 105), rgb(69, 25, 105) 70%);
+                border-radius:214px;
+                position:absolute;
+                top:0;right:0;bottom:0;left:0;
+                margin: 250px auto;
+                box-shadow:0 1px 2px rgba(0,0,0,0.3);
+                animation: scalecircle 2s;
+                padding-top: 30px;
+                cursor: pointer;
+                transform: scale(1);
+                z-index: 1000;
+            }
+            #circle:after{
+                content:"";
+                display:block;
+                border:5px dashed white;
+                width:345px;
+                height:345px;
+                border-radius:200px;
+                animation: spin 30s linear infinite;
+                position: absolute;
+                top: 0px;
+            }
+            #circle:hover{
+                background-image:radial-gradient(rgb(210, 133, 255), rgb(59, 0, 94) 70%);
+                transition: ease all .2s;
+            }
+            .etiqueta {
+                position: absolute;
+                width: 300px;
+                height: 150px;
+                background-image: url("entisar.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-top: -9em;
+                animation: etiqueta 2s forwards;
+                z-index: -2;
+            }
+            #text {
+                color: #FFF;
+                font-family: Lato, 'Roboto', 'Arial';
+                font-size: 25px;
+                position: absolute;
+                margin-top: 260px;
+                margin-left: 145px;
+                font-style: italic;
+            }
+            .fade {
+                transition: ease all 1s;
+                animation: cFADE 1s forwards !important;
+            }
+
+            @keyframes cFADE {
+                0% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            @keyframes scalecircle {
+                0% {
+                    transform: scale(0);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes etiqueta {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(20deg);
+                    margin-left: -3em;
+                }
+            }
+            @keyframes spin{
+                0%{ transform:rotate(0deg); }
+                100%{ transform:rotate(360deg); }
+            }
+        </style>
+        <script src="jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#circle').on('click', function(){
+                    $('#container').addClass('fade');
+                    setTimeout(function(){
+                        location.href="content.html";
+                    },1200);
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div id="container">
+        <div id="circle">
+                <div id="text">Open letter</div>
+                <div class="etiqueta"></div>
+        <div class="gift-box">
+            <div class="gift--ribbon-wrapper">
+              <div class="gift--ribbon gift--ribbon__left">
+                <div class="gift--ribbon-part part__big"></div>
+                <div class="gift--ribbon-part part__small"></div>
+              </div>
+              <div class="gift--ribbon-node__wrapper">
+                <div class="gift--ribbon-node__big"></div>
+                <div class="gift--ribbon-node__small"></div>
+              </div>
+              <div class="gift--ribbon gift--ribbon__right">
+                <div class="gift--ribbon-part part__big"></div>
+                <div class="gift--ribbon-part part__small"></div>      
+              </div>
+            </div>
+            <div class="gift--body">
+              <div class="gift--cover"></div>
+              <div class="gift--strip"></div>
+              <div class="gift--bottom"></div>  
+            </div>
+          </div>
+        </div>
+        </div>
+    </body>
+</html>
